@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//programa cria uma arvore balanceada a partir de um vetor ordenado
+//ordenação feita com quick sort
 
 // estrutura para árvore
 typedef struct sNoA {
