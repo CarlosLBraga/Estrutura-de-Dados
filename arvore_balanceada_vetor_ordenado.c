@@ -113,6 +113,28 @@ void imprime_arvore (TNoA* no, int tab){
     }
 }
 
+// função para buscar um elemento na árvore recursivamente
+// elementos a esquerda são menores, elementos a direita são maiores
+
+TNoA* busca_recursiva (TNoA* no, int chave) {
+    
+    if (no == NULL) {
+        return NULL;
+    }
+
+    else if (no->chave == chave) {
+        return no;
+    }
+
+    else if (no->chave > chave) { // se a busca for menor que o nó chave, busca na esquerda
+        return busca_recursiva(no->esq, chave);
+    }
+
+    else {
+        return busca_recursiva (no->dir, chave); // senão busca na direita
+    }
+}
+
 
 int main () {
     int n;
@@ -136,6 +158,20 @@ int main () {
     TNoA* raiz = NULL; // cria uma árvore vazia
     raiz = cria_arvore_balanceada(raiz, vetor, 0, n-1); // cria árvore balanceada com a chamada da função
     imprime_arvore(raiz, 0); // imprime a árvore
+
+    // busca um elemento na árvore
+    int chave_busca;
+    printf("\n");
+    printf("digite a chave para busca: ");
+    scanf("%d", &chave_busca);
+
+    TNoA* busca = busca_recursiva(raiz, chave_busca);
+    // se o elemento estiver na árvore, imprime a chave
+    if (busca != NULL){
+        printf("elemento %d encontrado", busca->chave);
+    } else {
+        printf("elemento não encontrado");
+    }
     
     return 0;
 }
