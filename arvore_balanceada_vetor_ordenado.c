@@ -131,7 +131,7 @@ TNoA* busca_recursiva (TNoA* no, int chave) {
     }
 
     else {
-        return busca_recursiva (no->dir, chave); // senão busca na direita
+        return busca_recursiva (no->dir, chave); // ou busca na direita
     }
 }
 
@@ -166,7 +166,7 @@ int main () {
     scanf("%d", &chave_busca);
 
     TNoA* busca = busca_recursiva(raiz, chave_busca);
-    // se o elemento estiver na árvore, imprime a chave
+    // se o elemento estiver na arvore imprime a chave
     if (busca != NULL){
         printf("elemento %d encontrado", busca->chave);
     } else {
